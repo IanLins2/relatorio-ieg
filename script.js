@@ -221,7 +221,7 @@ function headerMatchesIndicator(nk, indicatorId) {
   const rule = indicatorImportRules[indicatorId];
   if (!rule) return false;
   if (hasIndicatorNumber(nk, rule.number)) return true;
-  return rule.aliases.some((a) => nk.includes(a));
+  return rule.aliases.some((a) => nk.includes(normalizeText(a)));
 }
 
 function extractIndicatorValue(row, indicatorId) {
