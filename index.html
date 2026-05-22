@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Relatorios IEG - 16a GRE</title>
+  <title>Relatórios IEG - 16ª GRE</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
       <div>
-        <h1>Relatorios IEG - 16a GRE</h1>
+        <h1>Relatórios IEG - 16ª GRE</h1>
         <p>Indicadores 1, 2, 15, 16, 17, 18 e 19</p>
       </div>
       <!-- Indicador de conexão com a nuvem -->
@@ -27,12 +27,12 @@
 
       <div class="profile-switch" role="tablist" aria-label="Perfis">
         <button type="button" id="profile-adm-btn" class="profile-btn" data-profile="adm">Perfil ADM</button>
-        <button type="button" id="profile-user-btn" class="profile-btn is-active" data-profile="usuario">Perfil Usuario</button>
+        <button type="button" id="profile-user-btn" class="profile-btn is-active" data-profile="usuario">Perfil Usuário</button>
       </div>
 
       <article id="shared-controls" class="registration-card registration-card-focus">
-        <h3>Selecao da Escola</h3>
-        <p class="card-tip">Selecione cidade e escola, informe data e observacoes para o relatorio.</p>
+        <h3>Seleção da Escola</h3>
+        <p class="card-tip">Selecione cidade e escola, informe a data e as observações para o relatório.</p>
         <div class="stack">
           <label>
             Cidade (menu suspenso)
@@ -45,20 +45,20 @@
             <select id="school-select"></select>
           </label>
           <label>
-            Data do relatorio
+            Data do relatório
             <input id="report-date-input" type="date">
           </label>
           <label>
-            Observacoes/Encaminhamentos
-            <textarea id="notes-input" rows="3" placeholder="Digite observacoes e encaminhamentos"></textarea>
+            Observações/Encaminhamentos
+            <textarea id="notes-input" rows="3" placeholder="Digite observações e encaminhamentos"></textarea>
           </label>
-          <button type="button" id="save-meta-btn">Salvar data e observacoes</button>
+          <button type="button" id="save-meta-btn">Salvar data e observações</button>
         </div>
       </article>
 
       <article id="admin-controls" class="registration-card registration-card-focus" hidden>
         <h3>Perfil ADM</h3>
-        <p class="card-tip">Somente o ADM pode importar planilha e apagar os dados do sistema.</p>
+        <p class="card-tip">Somente o ADM pode importar a planilha e apagar os dados do sistema.</p>
         <div id="adm-actions" class="stack">
           <label>
             Upload da planilha (Excel/CSV)
@@ -66,17 +66,17 @@
           </label>
           <p id="import-status" class="import-status"></p>
           <div class="actions">
-            <button type="button" id="print-adm-btn" class="ghost">Gerar/Imprimir relatorio</button>
+            <button type="button" id="print-adm-btn" class="ghost">Gerar/Imprimir relatório</button>
             <button type="button" id="reset-data-btn">Apagar dados das escolas</button>
           </div>
         </div>
       </article>
 
       <article id="user-controls" class="registration-card">
-        <h3>Perfil Usuario</h3>
-        <p class="card-tip">O usuario pode apenas selecionar a escola e gerar/imprimir o relatorio.</p>
+        <h3>Perfil Usuário</h3>
+        <p class="card-tip">O usuário pode apenas selecionar a escola e gerar/imprimir o relatório.</p>
         <div class="stack">
-          <button type="button" id="print-btn" class="ghost">Gerar/Imprimir relatorio</button>
+          <button type="button" id="print-btn" class="ghost">Gerar/Imprimir relatório</button>
         </div>
       </article>
     </section>
@@ -84,11 +84,11 @@
     <section class="report" id="report">
       <div class="sheet-top">
         <div class="sheet-headline">
-          <h2>PORTFOLIO DO IEG - 16A GRE</h2>
+          <h2>PORTFÓLIO DO IEG - 16ª GRE</h2>
           <p class="sheet-school" id="report-school">Nenhuma escola selecionada</p>
-          <p class="sheet-period" id="report-period">Periodo nao informado</p>
+          <p class="sheet-period" id="report-period">Período não informado</p>
           <p class="sheet-intro">
-            O portfolio apresenta os resultados da escola no IEG e os dados de estudantes em risco de evasao.
+            O portfólio apresenta os resultados da escola no IEG e os dados de estudantes em risco de evasão.
           </p>
         </div>
         <div class="overall-badge">
@@ -97,32 +97,32 @@
         </div>
       </div>
 
-      <h3 class="sheet-title">INDICE DE EFICIENCIA DE GESTAO - IEG</h3>
+      <h3 class="sheet-title">ÍNDICE DE EFICIÊNCIA DE GESTÃO - IEG</h3>
 
       <div class="axes-grid">
         <section class="axis">
           <h4>EIXO 1: FLUXO</h4>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 1: Frequencia Escolar</p>
-            <p class="ind-sub">% Estudantes com frequencia >= 80%</p>
+            <p class="ind-title">Ind. 1: Frequência Escolar</p>
+            <p class="ind-sub">% Estudantes com frequência >= 80%</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind1"></span></div>
               <p class="percent" data-value="ind1">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind1">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 2: Evasao Escolar</p>
-            <p class="ind-sub">% Estudantes em rota de evasao</p>
+            <p class="ind-title">Ind. 2: Evasão Escolar</p>
+            <p class="ind-sub">% Estudantes em rota de evasão</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind2"></span></div>
               <p class="percent" data-value="ind2">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind2">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
@@ -131,62 +131,62 @@
         <section class="axis">
           <h4>EIXO 5: APRENDIZAGEM</h4>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 15: Estudantes com media >= 6 em Lingua Portuguesa</p>
-            <p class="ind-sub">% Estudantes com media maior ou igual a 6 em Lingua Portuguesa</p>
+            <p class="ind-title">Ind. 15: Estudantes com média >= 6 em Língua Portuguesa</p>
+            <p class="ind-sub">% Estudantes com média maior ou igual a 6 em Língua Portuguesa</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind15"></span></div>
               <p class="percent" data-value="ind15">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind15">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 16: Estudantes com media >= 6 em Matematica</p>
-            <p class="ind-sub">% Estudantes com media maior ou igual a 6 em Matematica</p>
+            <p class="ind-title">Ind. 16: Estudantes com média >= 6 em Matemática</p>
+            <p class="ind-sub">% Estudantes com média maior ou igual a 6 em Matemática</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind16"></span></div>
               <p class="percent" data-value="ind16">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind16">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 17: Estudantes com media >= 6 em Linguagens</p>
-            <p class="ind-sub">% Estudantes com media maior ou igual a 6 em Linguagens</p>
+            <p class="ind-title">Ind. 17: Estudantes com média >= 6 em Linguagens</p>
+            <p class="ind-sub">% Estudantes com média maior ou igual a 6 em Linguagens</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind17"></span></div>
               <p class="percent" data-value="ind17">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind17">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 18: Estudantes com media >= 6 em C. da Natureza</p>
-            <p class="ind-sub">% Estudantes com media maior ou igual a 6 em C. da Natureza</p>
+            <p class="ind-title">Ind. 18: Estudantes com média >= 6 em C. da Natureza</p>
+            <p class="ind-sub">% Estudantes com média maior ou igual a 6 em C. da Natureza</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind18"></span></div>
               <p class="percent" data-value="ind18">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind18">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
           <article class="indicator-item">
-            <p class="ind-title">Ind. 19: Estudantes com media >= 6 em C. Humanas</p>
-            <p class="ind-sub">% Estudantes com media maior ou igual a 6 em C. Humanas</p>
+            <p class="ind-title">Ind. 19: Estudantes com média >= 6 em C. Humanas</p>
+            <p class="ind-sub">% Estudantes com média maior ou igual a 6 em C. Humanas</p>
             <div class="ind-row">
               <div class="progress"><span data-bar="ind19"></span></div>
               <p class="percent" data-value="ind19">0%</p>
               <div class="score-gauge">
                 <span class="score-number" data-points="ind19">0.0</span>
-                <span class="score-label">PONTUACAO</span>
+                <span class="score-label">PONTUAÇÃO</span>
               </div>
             </div>
           </article>
@@ -194,8 +194,8 @@
       </div>
 
       <div class="notes-box">
-        <h3>OBSERVACOES/ENCAMINHAMENTOS</h3>
-        <p id="report-notes">Sem observacoes.</p>
+        <h3>OBSERVAÇÕES/ENCAMINHAMENTOS</h3>
+        <p id="report-notes">Sem observações.</p>
       </div>
     </section>
   </main>
@@ -230,7 +230,7 @@
         window.__fbSnapshot = onSnapshot;
 
         window.__cloudReady({ error: null });
-      } catch (e) { 
+      } catch (e) {
         console.error("Firebase:", e);
         window.__cloudReady({ error: e.message });
       }
