@@ -22,13 +22,13 @@ const indicatorMeta = [
 ];
 
 const indicatorImportRules = {
-  ind1:  { number: 1,  aliases: ["frequencia escolar", "frequencia"] },
-  ind2:  { number: 2,  aliases: ["evasao escolar", "rota de evasao", "evasao"] },
-  ind15: { number: 15, aliases: ["lingua portuguesa", "portuguesa"] },
-  ind16: { number: 16, aliases: ["matematica"] },
+  ind1:  { number: 1,  aliases: ["frequência escolar", "frequência"] },
+  ind2:  { number: 2,  aliases: ["evasão escolar", "rota de evasão", "evasão"] },
+  ind15: { number: 15, aliases: ["língua portuguesa", "portuguesa"] },
+  ind16: { number: 16, aliases: ["matemática"] },
   ind17: { number: 17, aliases: ["linguagens"] },
-  ind18: { number: 18, aliases: ["c. da natureza", "ciencias da natureza", "natureza"] },
-  ind19: { number: 19, aliases: ["c. humanas", "ciencias humanas", "humanas"] },
+  ind18: { number: 18, aliases: ["c. da natureza", "ciências da natureza", "natureza"] },
+  ind19: { number: 19, aliases: ["c. humanas", "ciências humanas", "humanas"] },
 };
 
 // ── Elementos DOM ────────────────────────────────────────────
@@ -70,7 +70,7 @@ window.__cloudReady = function ({ error }) {
   }
 
   if (error) {
-    setCloudStatus("error", "Erro na conexao");
+    setCloudStatus("error", "Erro na conexão");
     cloudAvailable = false;
     initApp();
     return;
@@ -78,7 +78,7 @@ window.__cloudReady = function ({ error }) {
 
   // Firebase conectado — inicia listener em tempo real
   cloudAvailable = true;
-  setCloudStatus("online", "Conectado a nuvem");
+  setCloudStatus("online", "Conectado à nuvem");
 
   const db       = window.__db;
   const fbDoc    = window.__fbDoc;
@@ -100,10 +100,10 @@ window.__cloudReady = function ({ error }) {
       schools = [];
     }
     renderSchoolSelect();
-    setCloudStatus("online", "Conectado a nuvem");
+    setCloudStatus("online", "Conectado à nuvem");
   }, (err) => {
     console.error("Listener Firestore:", err);
-    setCloudStatus("error", "Erro na sincronizacao");
+    setCloudStatus("error", "Erro na sincronização");
   });
 
   initApp();
@@ -137,7 +137,7 @@ async function saveSchools() {
     const fbSet   = window.__fbSetDoc;
     const ref     = fbDoc(db, FB_DOC_PATH.collection, FB_DOC_PATH.document);
     await fbSet(ref, { jsonData: JSON.stringify(schools), updatedAt: new Date().toISOString() });
-    setCloudStatus("online", "Conectado a nuvem");
+    setCloudStatus("online", "Conectado à nuvem");
   } catch (e) {
     console.error("Firestore write:", e);
     setCloudStatus("error", "Falha ao salvar na nuvem");
@@ -264,7 +264,7 @@ function parseRowsToSchools(rows) {
     const city      = extractField(row, ["cidade", "municipio"]) || "Nao informado";
     const period    = extractField(row, ["periodo", "referencia", "mes"]);
     const schoolIeg = extractField(row, ["ieg"]);
-    const notes     = extractField(row, ["observacao", "observacoes", "obs"]);
+    const notes     = extractField(row, ["observação", "observações", "obs"]);
     const indicators = createDefaultIndicators();
     indicatorMeta.forEach((m) => { indicators[m.id] = extractIndicatorValue(row, m.id); });
     acc.push({ name, city, period, schoolIeg, notes, indicators });
@@ -295,7 +295,7 @@ async function importSpreadsheet(file) {
   try {
     setImportStatus("Importando planilha...");
     if (!window.XLSX) {
-      setImportStatus("Nao foi possivel carregar o leitor de Excel.", true);
+      setImportStatus("Não foi possível carregar o leitor de Excel.", true);
       return;
     }
     const buffer  = await readFileAsArrayBuffer(file);
@@ -367,8 +367,8 @@ function renderReport() {
   const school = getSelectedSchool();
   if (!school) {
     reportSchool.textContent = "Nenhuma escola selecionada";
-    reportPeriod.textContent = "Periodo nao informado";
-    reportNotes.textContent  = "Sem observacoes.";
+    reportPeriod.textContent = "Período não informado";
+    reportNotes.textContent  = "Sem observações.";
     overallScore.textContent = "0.0";
     indicatorMeta.forEach((m) => updateIndicatorVisual(m.id, 0));
     return;
@@ -376,9 +376,9 @@ function renderReport() {
   reportSchool.textContent = school.name;
   const periodText = school.reportDate || school.period;
   reportPeriod.textContent = periodText
-    ? `Data/Periodo: ${periodText} | Cidade: ${school.city}`
+    ? `Data/Período: ${periodText} | Cidade: ${school.city}`
     : `Cidade: ${school.city}`;
-  reportNotes.textContent = school.notes?.trim() || "Sem observacoes.";
+  reportNotes.textContent = school.notes?.trim() || "Sem observações.";
   let sum = 0;
   indicatorMeta.forEach((m) => { sum += updateIndicatorVisual(m.id, school.indicators[m.id]); });
   const iegManual = Number(school.schoolIeg);
@@ -435,18 +435,18 @@ function renderSchoolSelect() {
 // ── Impressão via html2canvas ────────────────────────────────
 function buildPrintDoc(imageDataUrl) {
   return `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
-<title>Relatorio IEG</title>
+<title>Relatório IEG</title>
 <style>
   html,body{margin:0;padding:0;background:#fff;}
   #page{width:186mm;height:265mm;margin:0 auto;display:flex;align-items:center;justify-content:center;overflow:hidden;}
   #page img{max-width:100%;max-height:100%;object-fit:contain;display:block;}
   @page{size:A4 portrait;margin:4mm;}
-</style></head><body><div id="page"><img src="${imageDataUrl}" alt="Relatorio IEG"></div></body></html>`;
+</style></head><body><div id="page"><img src="${imageDataUrl}" alt="Relatório IEG"></div></body></html>`;
 }
 
 async function printReport() {
   if (!getSelectedSchool()) { alert("Selecione uma escola antes de imprimir."); return; }
-  if (!window.html2canvas)  { alert("Falha ao carregar modulo de impressao. Recarregue a pagina."); return; }
+  if (!window.html2canvas)  { alert("Falha ao carregar módulo de impressão. Recarregue a página."); return; }
   const node = document.querySelector("#report");
   try {
     const canvas = await window.html2canvas(node, {
@@ -465,7 +465,7 @@ async function printReport() {
     frame.onload = () => setTimeout(() => { frame.contentWindow?.focus(); frame.contentWindow?.print(); }, 80);
     frame.srcdoc = html;
   } catch {
-    alert("Nao foi possivel gerar a impressao. Tente novamente.");
+    alert("Não foi possível gerar a impressão. Tente novamente.");
   }
 }
 
