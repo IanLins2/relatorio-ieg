@@ -230,7 +230,7 @@
         window.__fbSnapshot = onSnapshot;
 
         window.__cloudReady({ error: null });
-      } catch (e) {
+      } catch (e) { 
         console.error("Firebase:", e);
         window.__cloudReady({ error: e.message });
       }
